@@ -26,6 +26,15 @@
     line-height: 50px;
     float: right;
 }
+.options-wrapper{
+    height: 50px;
+    cursor: pointer;
+    float: left;
+    text-align: center;
+    background-color:  #282c34;
+    border: 0px;
+    color: white;
+}
 .options{
     height: 50px;
     margin-left: 20px;

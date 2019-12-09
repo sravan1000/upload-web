@@ -1,7 +1,31 @@
 <form #register = "ngForm" (ngSubmit) = "onClickSubmit()">
-        <label> Please select file..</label><br>
-        <input type = "file" name = "file" placeholder = "upload file" (change) = "onFileSelected($event)"><br>
-        <input type = "submit" value = "submit">
+
+        <div class = "form-element-wrapper"> 
+                <div class="form-element-title">
+                        Please Upload Files here (can upload multiple files at a time..)
+                </div>
+        </div>
+
+        <div class = "form-element-wrapper"> 
+                        <div class="form-element-title">
+                                File:
+                        </div>
+                        <br>
+                        <!-- <div class="form-element-input">  -->
+                                <input type = "file" name = "file" placeholder = "upload file" (change) = "onFileSelected($event)" multiple>
+                        <!-- </div> -->
+        </div>
+        <div class = "form-element-wrapper"> 
+                
+                <div class="form-element-input"> 
+
+                        <input type = "submit" value = "submit">
+
+                </div>
+        </div>
+        
+        
+        
 </form>
 
 

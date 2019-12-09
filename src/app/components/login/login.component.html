@@ -1,8 +1,47 @@
-<form #login = "ngForm" (ngSubmit) = "onClickSubmit(login.value)" >
-        <input type = "text" name = "email" placeholder = "email" ngModel>
+<form class="form-parent" #login = "ngForm" (ngSubmit) = "onClickSubmit(login.value)" >
+        
+        <div class = "form-element-wrapper"> 
+                <div class="form-element-title">
+                        Please Login
+                </div>
+        </div>
+
+        <div class = "form-element-wrapper"> 
+                <div class="form-element-title">
+                        Email:
+                </div>
+                <div class="form-element-input"> 
+                         <input type = "text" name = "email" placeholder = "email" ngModel>
+                </div>
+        </div>
+
+        <div class = "form-element-wrapper"> 
+                <div class="form-element-title">
+                        Password:
+                </div>
+                <div class="form-element-input"> 
+                        <input type = "password" name = "password" placeholder = "password" ngModel>
+                </div>
+        </div>
+
+        <div class = "form-element-wrapper"> 
+                
+                <div class="form-element-input"> 
+
+                        <input type = "submit" value = "submit">
+
+                </div>
+        </div>
+        
+        
+        
         <br/>
-        <input type = "password" name = "password" placeholder = "password" ngModel>
-        <br/>
-        <input type = "submit" value = "submit">
-        <p> Do not have an account? <a routerLink="/register"> Register here </a> </p>
+
+        <div class = "form-element-wrapper"> 
+                       
+                <p> Do not have an account? <a routerLink="/register"> Register here </a> </p>
+                        
+        </div>
+        
+        
 </form>

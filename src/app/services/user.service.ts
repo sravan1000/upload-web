@@ -19,13 +19,17 @@ export class UserService {
   constructor(private http:HttpClient, private router: Router) { }
 
   register(userData){
+    
     let end_point = "/register";
-    console.log("user data in service...",userData);
+
     var result = this.http.post(this.api_url+end_point,userData).subscribe(res=>{
-      console.log("result of subsribe is..",res);
+
       if(res["type"] == "success"){
+
         alert("successfully Registered.");
+
       }
+
     });
 
   }
@@ -36,13 +40,21 @@ export class UserService {
     console.log("user data in validate service...",userData);
 
     var result = this.http.post(this.api_url+end_point,userData).subscribe(res=>{
-      console.log("result of subsribe is..",res);
+
       if((res["type"] == "success") && res["token"]){
+
         alert("successfully loged in");
+
         localStorage.setItem('token', res["token"]);
+
+        this.router.navigate(['/home']);
+
       }else{
-          console.log("redirect to login..");
+
+          console.log("redirect to register..");
+
           this.router.navigate(['/register']);
+
       }
     });
 

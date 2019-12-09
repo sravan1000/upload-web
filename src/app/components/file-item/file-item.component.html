@@ -1,5 +1,28 @@
-<div>
+<div class="item_card">
+    
+    <div class="item_card_name">
+        {{fileItem.original_name}} ( {{ fileItem.size}} kb )
+    </div>
 
-    <p>{{fileItem.name}}</p>
+    <div class="item_card_options">
+
+        <div class="options-wrapper">
+
+                is public  <input type="checkbox" [(ngModel)]="fileItem.is_public" id={{fileItem._id}} multiple (change) = "onPublicToggle($event)" />
+            
+        </div>
+
+        <div class="options-wrapper"> 
+
+                <button class="options" value={{fileItem._id}} (click)="onClickDelete($event)">delete</button>
+                   
+        </div>
+        
+        <div class="options-wrapper">
+
+                <button class="options" value={{fileItem._id}} name={{fileItem.original_name}} (click)="onClickDownload($event)">download</button>
+                    
+        </div>
+    </div>
     
 </div>

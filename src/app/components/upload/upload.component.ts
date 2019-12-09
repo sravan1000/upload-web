@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UploadService } from '../../services/upload.service';
+import { Router } from '@angular/router'; 
+
 
 
 @Component({
@@ -10,9 +12,15 @@ import { UploadService } from '../../services/upload.service';
 export class UploadComponent implements OnInit {
 
   fileData: File[] = null;
-  constructor(private uploadService:UploadService) { }
+  constructor(private uploadService:UploadService, private router:Router) { }
 
   ngOnInit() {
+
+    if (!localStorage.getItem("token")) {
+
+      this.router.navigate(['/login']);
+      
+    }
     
   }
 

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FileInfo } from '../../models/FileInfo';
+import { FileitemsService } from '../../services/fileitems.service';
+import { Router } from '@angular/router'; 
+
 @Component({
   selector: 'app-files-info',
   templateUrl: './files-info.component.html',
@@ -7,32 +10,34 @@ import {FileInfo } from '../../models/FileInfo';
 })
 export class FilesInfoComponent implements OnInit {
 
-  filesInfo:FileInfo[];
+  filesInfo = [];
 
-  constructor() { }
+  constructor(private fileitemsService:FileitemsService,  private router:Router) { }
 
   ngOnInit() {
-
     
-    this.filesInfo = [
-      {
-        id:"1",
-        name: "ssss.jpg",
-        size: "20kb",
-        path: "desktop/help",
-        public_access: false,
-        uploaded_on: new Date(),
-      },
-      {
-        id:"2",
-        name: "ssss2.jpg",
-        size: "20kb",
-        path: "desktop/help2",
-        public_access: false,
-        uploaded_on: new Date(),
-      }
-    ]
+    if (localStorage.getItem("token")) {
 
+      this.fileitemsService.getFilesOfUser().subscribe((response) => {
+
+          console.log('response received is ', response);
+
+          if(response["type"] == "success"){
+
+            this.filesInfo = response["data"];
+
+          }
+
+      })
+       
+    }else{
+
+      alert("Please Re login can not found authorization token");
+
+      this.router.navigate(['/login']);
+
+    }
+  
   }
 
 }

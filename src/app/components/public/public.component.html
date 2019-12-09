@@ -1,0 +1,13 @@
+<div class="file_item_card">
+    <p> All public files of all users are shown here.</p> <br>
+    <div class="item_card" *ngFor = "let fileItem of filesInfo">
+        <div class="item_card_name">
+            {{fileItem.original_name}} ( {{ fileItem.size}} kb ) (owner: {{fileItem.user_id}})
+        </div>
+        <div class="item_card_options">
+                <div class="options-wrapper">
+                        <button class="options" value={{fileItem._id}} name={{fileItem.original_name}} (click)="onClickDownload($event)">download</button>
+                </div>
+        </div>
+    </div>
+</div>

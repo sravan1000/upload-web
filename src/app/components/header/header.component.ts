@@ -9,7 +9,7 @@ export class HeaderComponent implements OnInit {
   buttons = [
     {value:"home",link:"/home"},
     {value:"public", link:"/public"},
-    {value:"publications", link:"/publications"},
+    // {value:"publications", link:"/publications"},
     {value:"upload",link:"/upload"},
     {value:"logout",link:"/logout"}]
   constructor() { }
