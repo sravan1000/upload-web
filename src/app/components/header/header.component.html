@@ -1,0 +1,21 @@
+<div class="head_wrapper">
+        <div class="head_text">
+                Files
+        </div>
+        <div class="head_options">
+
+                <div class="options" *ngFor = "let eachbutton of buttons">
+
+                        <a routerLink={{eachbutton.link}}> 
+
+                                <button class="options">{{eachbutton.value}}</button>
+
+                        </a>
+
+                </div>
+
+        </div>
+
+</div>  
+
+
